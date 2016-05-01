@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />  
+  <property resource="logback.properties"/>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>qrupmmlak-batch.log</file>	
+ 	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+     <!-- daily rollover -->
+     <fileNamePattern>${my.log}/qrupmmlak-batch.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+	 <!-- keep 30 days' worth of history -->
+     <maxHistory>30</maxHistory>
+   	</rollingPolicy>
+	
+    <encoder>
+      <pattern>%date{ISO8601} [%thread] %-5level [%logger{36}] [%method:%line] : %msg%n</pattern>
+      <!-- ensures that logging events are immediately written to disk -->
+      <outputPatternAsHeader>true</outputPatternAsHeader>
+      <immediateFlush>true</immediateFlush>
+    </encoder>
+  </appender>
+  
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!--  encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%date{ISO8601} [%thread] %-5level [%logger{36}] [%method:%line] : %msg%n</pattern>
+      <outputPatternAsHeader>true</outputPatternAsHeader>
+    </encoder>
+  </appender>
+ 
+
+  <root level="INFO">
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="STDOUT" />
+  </root>
+  
+  <!-- <logger name="org.hibernate" level="INFO"/>
+  <logger name="com.mchange" level="INFO"/> -->
+   
+  <logger name="org.springframework.web.servlet.mvc" level="TRACE" />
+   <!-- <logger name="org.hibernate" level="TRACE" /> -->
+  
+</configuration>
