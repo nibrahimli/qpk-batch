@@ -3,6 +3,7 @@ import org.apache.commons.daemon.Daemon;
 import org.apache.commons.daemon.DaemonContext;
 import org.apache.commons.daemon.DaemonInitException;
 import org.quartz.CronScheduleBuilder;
+import org.quartz.DateBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.Trigger;
@@ -37,11 +38,11 @@ public class SitemapGeneration implements Daemon {
 			    .withIdentity("jobURLGeneration", "qrupEmlakSitemap") 
 			    .build(); 
 			        
-			// Trigger the job to run now, and then repeat every 40 seconds 
+			// Trigger the job to run every sunday at 6h:00 
 			Trigger trigger = newTrigger() 
 			    .withIdentity("triggerSitemap", "qrupEmlakSitemap") 
 			    .startNow() 
-			    .withSchedule(CronScheduleBuilder.weeklyOnDayAndHourAndMinute(1, 6, 0))            
+			    .withSchedule(CronScheduleBuilder.weeklyOnDayAndHourAndMinute(DateBuilder.SUNDAY, 6, 0))            
 			    .build(); 
 			        
 			// Tell quartz to schedule the job using our trigger 
