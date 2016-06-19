@@ -47,7 +47,7 @@ public class URLGeneration extends AbstractTask implements Job{
 			if(!isLocExist(qrupEmlakSitemapList, loc)){
 				QrupEmlakSitemap qrupEmlakSitemap = new QrupEmlakSitemap();
 				qrupEmlakSitemap.setLoc(loc);
-				qrupEmlakSitemap.setChangefreq(ChangeFreq.never);
+				qrupEmlakSitemap.setChangeFreq(ChangeFreq.never);
 				qrupEmlakSitemap.setLastMod(new Date());
 				qrupEmlakSitemap.setPriority(new Float(1.0));
 				qrupEmlakSitemapDao.create(qrupEmlakSitemap);
@@ -59,7 +59,7 @@ public class URLGeneration extends AbstractTask implements Job{
 		if(!isLocExist(qrupEmlakSitemapList, contactLoc)){
 			QrupEmlakSitemap qrupEmlakSitemap = new QrupEmlakSitemap();
 			qrupEmlakSitemap.setLoc(contactLoc);
-			qrupEmlakSitemap.setChangefreq(ChangeFreq.never);
+			qrupEmlakSitemap.setChangeFreq(ChangeFreq.never);
 			qrupEmlakSitemap.setLastMod(new Date());
 			qrupEmlakSitemap.setPriority(new Float(0.5));
 			qrupEmlakSitemapDao.create(qrupEmlakSitemap);
@@ -70,7 +70,7 @@ public class URLGeneration extends AbstractTask implements Job{
 		if(!isLocExist(qrupEmlakSitemapList, homeLoc)){
 			QrupEmlakSitemap qrupEmlakSitemap = new QrupEmlakSitemap();
 			qrupEmlakSitemap.setLoc(homeLoc);
-			qrupEmlakSitemap.setChangefreq(ChangeFreq.daily);
+			qrupEmlakSitemap.setChangeFreq(ChangeFreq.daily);
 			qrupEmlakSitemap.setLastMod(new Date());
 			qrupEmlakSitemap.setPriority(new Float(1.0));
 			qrupEmlakSitemapDao.create(qrupEmlakSitemap);
@@ -81,7 +81,7 @@ public class URLGeneration extends AbstractTask implements Job{
 		if(!isLocExist(qrupEmlakSitemapList, homeLoc)){
 			QrupEmlakSitemap qrupEmlakSitemap = new QrupEmlakSitemap();
 			qrupEmlakSitemap.setLoc(advancedSearchLoc);
-			qrupEmlakSitemap.setChangefreq(ChangeFreq.daily);
+			qrupEmlakSitemap.setChangeFreq(ChangeFreq.daily);
 			qrupEmlakSitemap.setLastMod(new Date());
 			qrupEmlakSitemap.setPriority(new Float(1.0));
 			qrupEmlakSitemapDao.create(qrupEmlakSitemap);
